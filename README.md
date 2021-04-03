@@ -39,15 +39,15 @@ To run with docker-compose:
 
 #### Posting new message
 
-![postman_post](.\postman_post.jpg)
+![postman_post](postman_post.jpg)
 
 #### Getting resource by first id (unique to every node)
 
-![postman_get_id1](.\postman_get_id1.jpg)
+![postman_get_id1](postman_get_id1.jpg)
 
 #### Getting resource by second id (unique to every node)
 
-![postman_get_id2](.\postman_get_id2.jpg)
+![postman_get_id2](postman_get_id2.jpg)
 
 
 
