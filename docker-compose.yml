@@ -28,5 +28,20 @@ services:
       - "gateway"
     networks:
       - mynet
+  node_b:
+    build:
+      context: "./"
+      dockerfile: "./node/Dockerfile"
+      args:
+        PORT: 3010
+        HOSTNAME: "node_b"
+        MODULE_NAME: "node.main"
+    ports:
+      - "3010:3010"
+    stdin_open: true
+    depends_on:
+      - "gateway"
+    networks:
+      - mynet
 networks:
   mynet:
