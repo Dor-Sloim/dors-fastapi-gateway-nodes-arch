@@ -1,0 +1,3 @@
+gateway:
+  hostname: "gateway"
+  port: 3000
