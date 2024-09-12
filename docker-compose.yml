@@ -1,0 +1,47 @@
+version: '3.7'
+services:
+  gateway:
+    build:
+      context: "./"
+      dockerfile: "./gateway/Dockerfile"
+      args:
+        PORT: 3000
+        MODULE_NAME: "gateway.main"
+    ports:
+      - "3000:3000"
+    stdin_open: true
+    networks:
+      - mynet
+
+  node_a:
+    build:
+      context: "./"
+      dockerfile: "./node/Dockerfile"
+      args:
+        PORT: 3005
+        HOSTNAME: "node_a"
+        MODULE_NAME: "node.main"
+    ports:
+      - "3005:3005"
+    stdin_open: true
+    depends_on:
+      - "gateway"
+    networks:
+      - mynet
+  node_b:
+    build:
+      context: "./"
+      dockerfile: "./node/Dockerfile"
+      args:
+        PORT: 3010
+        HOSTNAME: "node_b"
+        MODULE_NAME: "node.main"
+    ports:
+      - "3010:3010"
+    stdin_open: true
+    depends_on:
+      - "gateway"
+    networks:
+      - mynet
+networks:
+  mynet:
